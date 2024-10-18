@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+#DATABASES = {
     "default": {
         #"ENGINE": "django.db.backends.postgresql",
         #"NAME": "Maor_proj_db",
@@ -84,9 +84,22 @@ DATABASES = {
        # "PASSWORD": "L23m23b23",
       #  "HOST": "127.0.0.1",
      #"PORT": "5432",
-         'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+         #'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    #}
+#}
+        
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
+
 
 
 # Password validation
