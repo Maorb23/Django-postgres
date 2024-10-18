@@ -78,12 +78,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "Maor_proj_db",
-        "USER": "postgres",
-        "PASSWORD": "L23m23b23",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        #"ENGINE": "django.db.backends.postgresql",
+        #"NAME": "Maor_proj_db",
+        #"USER": "postgres",
+       # "PASSWORD": "L23m23b23",
+      #  "HOST": "127.0.0.1",
+     #"PORT": "5432",
+         'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
 }
 
