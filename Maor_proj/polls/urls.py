@@ -24,15 +24,12 @@ urlpatterns = [
 #    path('<int:question_id>/vote/', views.vote, name='vote'),
 #]
 
-<<<<<<< HEAD
 from django.urls import path
 
 from . import views
 
 app_name = 'Maor_proj.polls'
-=======
-app_name = 'polls'
->>>>>>> 58a037ee7c22b28c992f9c32e1a03fb55343b9d2
+
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
