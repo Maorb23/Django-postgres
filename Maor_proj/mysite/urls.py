@@ -24,6 +24,6 @@ from . import views2
 
 urlpatterns = [
     path('', views2.index, name='index'),  # The index view
-    path('polls/', include('polls.urls')),  # Include the polls URLs
+    path('polls/', include('Maor_proj.polls.urls')),  # Include the polls URLs
     path('admin/', admin.site.urls),
 ]

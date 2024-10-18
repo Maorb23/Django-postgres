@@ -16,7 +16,6 @@ urlpatterns = [
 """
 #version 2 with generic views
 
-app_name = 'polls'  # This is important for namespacing
 
 #urlpatterns = [
  #   path('', views.index, name='index'),
@@ -29,7 +28,7 @@ from django.urls import path
 
 from . import views
 
-app_name = 'polls'
+app_name = 'Maor_proj.polls'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
