@@ -25,10 +25,6 @@ app_name = 'polls'  # This is important for namespacing
 #    path('<int:question_id>/vote/', views.vote, name='vote'),
 #]
 
-from django.urls import path
-
-from . import views
-
 app_name = 'polls'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
