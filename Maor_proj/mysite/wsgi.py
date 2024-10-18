@@ -13,7 +13,7 @@ from django.core.wsgi import get_wsgi_application
 from whitenoise import WhiteNoise
 from django.conf import settings
     
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Maor_proj.mysite.settings')
 
 application = get_wsgi_application()
 #application = WhiteNoise(application, root='/path/to/staticfiles')
