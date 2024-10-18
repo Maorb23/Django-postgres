@@ -10,7 +10,7 @@ services:
     name: mysite
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "waitress-serve --port=8000 Maor_proj.mysite.wsgi:application"
+    startCommand: "waitress-serve --port=8000 mysite.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
