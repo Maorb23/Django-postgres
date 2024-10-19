@@ -2,5 +2,5 @@ li a {
     color: white;
 }
 body {
-    background: white url("/static/polls/images/Background.jpg") no-repeat;
+    background: white url("/staticfiles/polls/images/Background.jpg") no-repeat;
 }
