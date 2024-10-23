@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
+#ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Maor_proj.polls.apps.PollsConfig',
+    'Maor_proj.cv.apps.CvConfig',
+    'Maor_proj.articles.apps.ArticlesConfig',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'Maor_proj.mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'mysite', 'templates', 'mysite')],#'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +89,7 @@ WSGI_APPLICATION = 'Maor_proj.mysite.wsgi.application'
     #}
 #}
         
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -98,11 +100,20 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
     }
 }
+"""
 
 # run with waitress: waitress-serve --port=8000 Maor_proj.mysite.wsgi:application
 import dj_database_url
-database_url = os.environ.get('DATABASE_URL')
-DATABASES['default'] = dj_database_url.parse(database_url, conn_max_age=600)
+#database_url = os.environ.get('DATABASE_URL')
+#DATABASES['default'] = dj_database_url.parse(database_url, conn_max_age=600)
+#toy database sqlite3
+#DATABASES['default'] = dj_database_url.config(default='sqlite:///db.sqlite3')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -144,11 +155,19 @@ DEBUG = True  # (Leave True for testing, but set to False for production)
 
 # Define the location for static files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'mysite','static'),
+]
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Optional: Add MEDIA settings if you have user uploads
+#MEDIA_URL = '/media/'
+
+#MEDIA_ROOT = BASE_DIR / 'media'
+ALLOWED_HOSTS = ['*',]
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
