@@ -19,22 +19,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
-
 
 from . import views2
 
 urlpatterns = [
-    path('', views2.main_index, name='main_index'),  # The index view
-    #path('', views.main_index, name='main_index'),
-    path('cv/', include('Maor_proj.cv.urls', namespace='Maor_proj.cv')),
-    path('articles/', include('Maor_proj.articles.urls')),  
+    path('', views2.index, name='index'),  # The index view
     path('polls/', include('Maor_proj.polls.urls')),  # Include the polls URLs
     path('admin/', admin.site.urls),
 ]
-
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
